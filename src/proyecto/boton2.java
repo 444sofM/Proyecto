@@ -92,7 +92,9 @@ public class boton2 extends javax.swing.JFrame {
     private void iniciojuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciojuegoActionPerformed
         // TODO add your handling code here:
         String nombres=escribirnombre.getText();// hay ya guardo el nombre escrito en el cuadro de texto.
-        
+        Letras2 newframe2= new Letras2();
+        newframe2.setVisible(true);
+        this.dispose();//para que no se acumulen las ventanas 
         
     }//GEN-LAST:event_iniciojuegoActionPerformed
 
