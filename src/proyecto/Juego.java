@@ -75,7 +75,9 @@ public class Juego extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JugarActionPerformed
-        // TODO add your handling code here:
+        boton2 newframe= new boton2();
+        newframe.setVisible(true);
+        this.dispose();//para que no se acumulen las ventanas 
     }//GEN-LAST:event_JugarActionPerformed
 
     private void InstruccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InstruccionActionPerformed
