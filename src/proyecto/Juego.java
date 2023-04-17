@@ -1,16 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package proyecto;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author ASUS
- */
+
 public class Juego extends javax.swing.JFrame {
 
     /**
@@ -29,6 +22,9 @@ public class Juego extends javax.swing.JFrame {
         Instruccion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 153, 153));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setFont(new java.awt.Font("Calibri", 0, 10)); // NOI18N
 
         Jugar.setBackground(new java.awt.Color(0, 255, 255));
         Jugar.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
@@ -121,9 +117,11 @@ public class Juego extends javax.swing.JFrame {
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Instruccion;
     private javax.swing.JButton Jugar;
     // End of variables declaration//GEN-END:variables
 }
+
