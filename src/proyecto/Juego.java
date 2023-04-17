@@ -41,6 +41,8 @@ public class Juego extends javax.swing.JFrame {
             }
         });
 
+        Instruccion.setBackground(new java.awt.Color(102, 255, 0));
+        Instruccion.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
         Instruccion.setText("Instrucciones");
         Instruccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,7 +61,7 @@ public class Juego extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(Jugar)
                         .addGap(25, 25, 25)))
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -68,7 +70,7 @@ public class Juego extends javax.swing.JFrame {
                 .addComponent(Jugar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Instruccion)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         pack();
