@@ -34,6 +34,8 @@ public class Juego extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        Jugar.setBackground(new java.awt.Color(0, 255, 255));
+        Jugar.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
         Jugar.setText("Jugar");
         Jugar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,7 +72,7 @@ public class Juego extends javax.swing.JFrame {
                 .addComponent(Jugar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Instruccion)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         pack();
