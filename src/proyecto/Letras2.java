@@ -1,19 +1,55 @@
 
 package proyecto;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Random;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Usuario
  */
-public class Letras2 extends javax.swing.JFrame {
+public class Letras2 extends javax.swing.JFrame{
+    private String[][] palabras = {{"PERRO", "GATO", "ELEFANTE"},
+        {"MANZANA", "BANANA", "NARANJA"},
+        {"ROJO", "AZUL", "VERDE"}
+    };
+    private Random rand = new Random();
+    private int indice = 0;
+    public String sinVocal(String palabras){
+        
+        boolean encontrado = false;
+        StringBuilder resultado = new StringBuilder();
+        for (int i = 0; i < palabras.length(); i++) {
+            char caracter = palabras.charAt(i);
+            if (!encontrado && esVocal(caracter)) {
+                resultado.append('_');
+                encontrado = true;
+            } else {
+                resultado.append(caracter);
+            }
+        }
+        return resultado.toString();
+
+        
+    }
+      public static boolean esVocal(char c) {
+        c = Character.toLowerCase(c);
+        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+    }
 
     /**
      * Creates new form Letras2
      */
     public Letras2() {
+        
         initComponents();
+        
+        
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,6 +72,9 @@ public class Letras2 extends javax.swing.JFrame {
         vocalO = new javax.swing.JButton();
         vocalU = new javax.swing.JButton();
         letraintento = new javax.swing.JTextField();
+        siguiente = new javax.swing.JButton();
+        boxuno = new javax.swing.JComboBox<>();
+        panelmuestra = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 153));
@@ -52,16 +91,19 @@ public class Letras2 extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 0, 255));
         jLabel3.setText("Aciertos:");
 
-        jugadornombre.setText("jTextField1");
+        jugadornombre.setFont(new java.awt.Font("Dubai Medium", 3, 18)); // NOI18N
+        jugadornombre.setForeground(new java.awt.Color(204, 0, 204));
         jugadornombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jugadornombreActionPerformed(evt);
             }
         });
 
-        fallos.setText("jTextField2");
-
-        aciertos.setText("jTextField3");
+        aciertos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aciertosActionPerformed(evt);
+            }
+        });
 
         salirdeljuego.setBackground(new java.awt.Color(51, 255, 0));
         salirdeljuego.setFont(new java.awt.Font("Vineta BT", 0, 24)); // NOI18N
@@ -127,52 +169,111 @@ public class Letras2 extends javax.swing.JFrame {
             }
         });
 
+        letraintento.setFont(new java.awt.Font("Chiller", 0, 36)); // NOI18N
         letraintento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 letraintentoActionPerformed(evt);
             }
         });
 
+        siguiente.setBackground(new java.awt.Color(0, 204, 255));
+        siguiente.setFont(new java.awt.Font("Dubai Medium", 1, 18)); // NOI18N
+        siguiente.setText("SIGUIENTE");
+        siguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                siguienteActionPerformed(evt);
+            }
+        });
+
+        boxuno.setBackground(new java.awt.Color(0, 255, 255));
+        boxuno.setFont(new java.awt.Font("Dubai Medium", 1, 18)); // NOI18N
+        boxuno.setForeground(new java.awt.Color(255, 102, 102));
+        boxuno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Animales", "Frutas", "Colores" }));
+        boxuno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxunoActionPerformed(evt);
+            }
+        });
+
+        panelmuestra.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                panelmuestraComponentAdded(evt);
+            }
+        });
+        panelmuestra.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                panelmuestraAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+
+        javax.swing.GroupLayout panelmuestraLayout = new javax.swing.GroupLayout(panelmuestra);
+        panelmuestra.setLayout(panelmuestraLayout);
+        panelmuestraLayout.setHorizontalGroup(
+            panelmuestraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 175, Short.MAX_VALUE)
+        );
+        panelmuestraLayout.setVerticalGroup(
+            panelmuestraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jugadornombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(309, 309, 309)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fallos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(aciertos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(145, 145, 145))
-            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jugadornombre, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(105, 105, 105)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(vocalA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(vocalI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGap(58, 58, 58)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(vocalE)
+                                .addComponent(vocalO)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(165, 165, 165)
+                            .addComponent(vocalU))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(142, 142, 142)
+                            .addComponent(boxuno, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(105, 105, 105)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(vocalA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(vocalI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(58, 58, 58)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(vocalE)
-                            .addComponent(vocalO)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(60, 60, 60)
+                                .addComponent(salirdeljuego))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(115, 115, 115)
+                                .addComponent(letraintento, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(219, 219, 219)
+                                .addComponent(siguiente))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(168, 168, 168)
+                                .addComponent(panelmuestra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(165, 165, 165)
-                        .addComponent(vocalU)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(salirdeljuego))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(letraintento, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(115, 115, 115)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fallos, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 290, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(aciertos, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(118, 118, 118))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,32 +286,41 @@ public class Letras2 extends javax.swing.JFrame {
                     .addComponent(jugadornombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fallos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(aciertos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(106, 106, 106)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(vocalA)
-                    .addComponent(vocalE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(panelmuestra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(letraintento, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(siguiente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(salirdeljuego)
+                        .addGap(62, 62, 62))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(boxuno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(86, 86, 86)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(vocalA)
+                            .addComponent(vocalE))
                         .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(vocalI)
                             .addComponent(vocalO))
                         .addGap(18, 18, 18)
                         .addComponent(vocalU)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                        .addComponent(salirdeljuego)
-                        .addGap(62, 62, 62))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(letraintento, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(181, 181, 181))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void jugadornombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jugadornombreActionPerformed
-        // TODO add your handling code here:
+        // Para que el nombre aparezaca en la ventana
+        String nombre = jugadornombre.getText();
+        jugadornombre.setText(jugadornombre.getText()+nombre);
+        
     }//GEN-LAST:event_jugadornombreActionPerformed
 
     private void salirdeljuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirdeljuegoActionPerformed
@@ -228,6 +338,7 @@ public class Letras2 extends javax.swing.JFrame {
         // TODO add your handling code here:
         String letra =vocalA.getText();
         letraintento.setText(letraintento.getText()+letra);
+        
     }//GEN-LAST:event_vocalAActionPerformed
 
     private void vocalEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vocalEActionPerformed
@@ -258,11 +369,44 @@ public class Letras2 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_letraintentoActionPerformed
 
+    private void aciertosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aciertosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_aciertosActionPerformed
+  
+    private void siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_siguienteActionPerformed
+        // TODO add your handling code here:
+        
+        String opcionSeleccionda = (String) boxuno.getSelectedItem();
+        String[] listaDePalabras = palabras[boxuno.getSelectedIndex()];
+        String palabra = listaDePalabras[rand.nextInt(listaDePalabras.length)];
+        String palabraMostrar = sinVocal(palabra);
+        letraintento.setText(palabraMostrar);
+        add(siguiente);
+        
+  
+    }//GEN-LAST:event_siguienteActionPerformed
+
+    private void boxunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxunoActionPerformed
+        // TODO add your handling code here:
+        add(boxuno);
+    }//GEN-LAST:event_boxunoActionPerformed
+
+    private void panelmuestraAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_panelmuestraAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelmuestraAncestorAdded
+
+    private void panelmuestraComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_panelmuestraComponentAdded
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_panelmuestraComponentAdded
+ 
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
+        Letras2 app = new Letras2();
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -291,17 +435,22 @@ public class Letras2 extends javax.swing.JFrame {
                 new Letras2().setVisible(true);
             }
         });
+        
     }
-
+    
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField aciertos;
+    private javax.swing.JComboBox<String> boxuno;
     private javax.swing.JTextField fallos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jugadornombre;
+    public static javax.swing.JTextField jugadornombre;
     private javax.swing.JTextField letraintento;
+    private javax.swing.JPanel panelmuestra;
     private javax.swing.JButton salirdeljuego;
+    private javax.swing.JButton siguiente;
     private javax.swing.JButton vocalA;
     private javax.swing.JButton vocalE;
     private javax.swing.JButton vocalI;
