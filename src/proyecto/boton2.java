@@ -15,7 +15,8 @@ public class boton2 extends javax.swing.JFrame {
      * Creates new form boton2
      */
     public boton2() {
-        initComponents();
+        
+       initComponents();
     }
 
     /**
@@ -34,7 +35,8 @@ public class boton2 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        ingresanombre.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        ingresanombre.setFont(new java.awt.Font("Dubai Light", 1, 24)); // NOI18N
+        ingresanombre.setForeground(new java.awt.Color(0, 102, 0));
         ingresanombre.setText("Ingresa tu nombre ");
 
         iniciojuego.setBackground(new java.awt.Color(0, 255, 255));
@@ -46,6 +48,8 @@ public class boton2 extends javax.swing.JFrame {
             }
         });
 
+        escribirnombre.setFont(new java.awt.Font("Elephant", 0, 18)); // NOI18N
+        escribirnombre.setForeground(new java.awt.Color(51, 204, 255));
         escribirnombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 escribirnombreActionPerformed(evt);
@@ -59,16 +63,17 @@ public class boton2 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(340, 340, 340)
-                        .addComponent(ingresanombre, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(280, 280, 280)
+                        .addComponent(ingresanombre, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(326, 326, 326)
-                        .addComponent(iniciojuego))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(256, 256, 256)
-                        .addComponent(escribirnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(249, 249, 249)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(escribirnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(47, 47, 47)
+                                .addComponent(iniciojuego)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -78,15 +83,15 @@ public class boton2 extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(125, 125, 125)
                         .addComponent(jLabel2)
-                        .addGap(52, 52, 52))
+                        .addGap(66, 66, 66))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(ingresanombre, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)))
+                        .addGap(29, 29, 29)))
                 .addComponent(escribirnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addGap(54, 54, 54)
                 .addComponent(iniciojuego)
-                .addGap(42, 42, 42))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         pack();
@@ -97,6 +102,8 @@ public class boton2 extends javax.swing.JFrame {
         String nombres=escribirnombre.getText();// hay ya guardo el nombre escrito en el cuadro de texto.
         Letras2 newframe2= new Letras2();
         newframe2.setVisible(true);
+        Letras2.jugadornombre.setText(nombres);
+        
         this.dispose();//para que no se acumulen las ventanas 
         
     }//GEN-LAST:event_iniciojuegoActionPerformed
