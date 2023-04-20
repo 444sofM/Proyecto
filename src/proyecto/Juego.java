@@ -27,7 +27,7 @@ public class Juego extends javax.swing.JFrame {
         setFont(new java.awt.Font("Calibri", 0, 10)); // NOI18N
 
         Jugar.setBackground(new java.awt.Color(0, 255, 255));
-        Jugar.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        Jugar.setFont(new java.awt.Font("Dubai Light", 1, 24)); // NOI18N
         Jugar.setText("Jugar");
         Jugar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -36,7 +36,7 @@ public class Juego extends javax.swing.JFrame {
         });
 
         Instruccion.setBackground(new java.awt.Color(102, 255, 0));
-        Instruccion.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        Instruccion.setFont(new java.awt.Font("Dubai Light", 1, 24)); // NOI18N
         Instruccion.setText("Instrucciones");
         Instruccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,7 +55,7 @@ public class Juego extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(Jugar)
                         .addGap(25, 25, 25)))
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -64,7 +64,7 @@ public class Juego extends javax.swing.JFrame {
                 .addComponent(Jugar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Instruccion)
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
