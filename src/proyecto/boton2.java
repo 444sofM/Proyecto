@@ -38,7 +38,7 @@ public class boton2 extends javax.swing.JFrame {
         ingresanombre.setText("Ingresa tu nombre ");
 
         iniciojuego.setBackground(new java.awt.Color(0, 255, 255));
-        iniciojuego.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        iniciojuego.setFont(new java.awt.Font("Dubai Light", 1, 24)); // NOI18N
         iniciojuego.setText("INICIAR JUEGO");
         iniciojuego.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,7 +84,7 @@ public class boton2 extends javax.swing.JFrame {
                         .addComponent(ingresanombre, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)))
                 .addComponent(escribirnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addComponent(iniciojuego)
                 .addGap(42, 42, 42))
         );
