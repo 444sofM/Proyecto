@@ -232,18 +232,26 @@ public class Letras2 extends javax.swing.JFrame {
 
     private void vocalEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vocalEActionPerformed
         // TODO add your handling code here:
+        String letra =vocalE.getText();
+        letraintento.setText(letraintento.getText()+letra);
     }//GEN-LAST:event_vocalEActionPerformed
 
     private void vocalIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vocalIActionPerformed
         // TODO add your handling code here:
+        String letra =vocalI.getText();
+        letraintento.setText(letraintento.getText()+letra);
     }//GEN-LAST:event_vocalIActionPerformed
 
     private void vocalOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vocalOActionPerformed
         // TODO add your handling code here:
+        String letra =vocalO.getText();
+        letraintento.setText(letraintento.getText()+letra);
     }//GEN-LAST:event_vocalOActionPerformed
 
     private void vocalUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vocalUActionPerformed
         // TODO add your handling code here:
+        String letra =vocalU.getText();
+        letraintento.setText(letraintento.getText()+letra);
     }//GEN-LAST:event_vocalUActionPerformed
 
     private void letraintentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letraintentoActionPerformed
