@@ -13,6 +13,7 @@ import javax.swing.JPanel;
  * @author Usuario
  */
 public class Letras2 extends javax.swing.JFrame{
+    int contador;
     private String[][] palabras = {{"PERRO", "GATO", "ELEFANTE"},
         {"MANZANA", "BANANA", "NARANJA"},
         {"ROJO", "AZUL", "VERDE"}
@@ -61,11 +62,9 @@ public class Letras2 extends javax.swing.JFrame{
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        intentos = new javax.swing.JLabel();
         jugadornombre = new javax.swing.JTextField();
-        fallos = new javax.swing.JTextField();
-        aciertos = new javax.swing.JTextField();
+        intentos1 = new javax.swing.JTextField();
         salirdeljuego = new javax.swing.JButton();
         vocalA = new javax.swing.JButton();
         vocalE = new javax.swing.JButton();
@@ -86,25 +85,15 @@ public class Letras2 extends javax.swing.JFrame{
         jLabel1.setForeground(new java.awt.Color(255, 51, 255));
         jLabel1.setText("Jugador:");
 
-        jLabel2.setFont(new java.awt.Font("Dubai Medium", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 0, 255));
-        jLabel2.setText("Fallos:");
-
-        jLabel3.setFont(new java.awt.Font("Dubai Medium", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 0, 255));
-        jLabel3.setText("Aciertos:");
+        intentos.setFont(new java.awt.Font("Dubai Medium", 1, 18)); // NOI18N
+        intentos.setForeground(new java.awt.Color(255, 0, 255));
+        intentos.setText("Intentos");
 
         jugadornombre.setFont(new java.awt.Font("Dubai Medium", 3, 18)); // NOI18N
         jugadornombre.setForeground(new java.awt.Color(204, 0, 204));
         jugadornombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jugadornombreActionPerformed(evt);
-            }
-        });
-
-        aciertos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aciertosActionPerformed(evt);
             }
         });
 
@@ -293,15 +282,11 @@ public class Letras2 extends javax.swing.JFrame{
                                 .addComponent(panelmuestra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(197, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fallos, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 290, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(aciertos, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(118, 118, 118))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(intentos)
+                        .addGap(18, 18, 18)
+                        .addComponent(intentos1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(181, 181, 181))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,11 +294,9 @@ public class Letras2 extends javax.swing.JFrame{
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
+                    .addComponent(intentos)
                     .addComponent(jugadornombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fallos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(aciertos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(intentos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(71, 71, 71)
@@ -396,13 +379,13 @@ public class Letras2 extends javax.swing.JFrame{
     private void letraintentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letraintentoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_letraintentoActionPerformed
-
-    private void aciertosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aciertosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_aciertosActionPerformed
   
     private void siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_siguienteActionPerformed
-        // TODO add your handling code here:
+            // TODO add your handling code here:
+        contador++;
+        String numero=String.valueOf(contador);
+        intentos1.setText(numero);
+        
         
         String opcionSeleccionda = (String) boxuno.getSelectedItem();
         String[] listaDePalabras = palabras[boxuno.getSelectedIndex()];
@@ -493,12 +476,10 @@ public class Letras2 extends javax.swing.JFrame{
     
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField aciertos;
     private javax.swing.JComboBox<String> boxuno;
-    private javax.swing.JTextField fallos;
+    private javax.swing.JLabel intentos;
+    private javax.swing.JTextField intentos1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     public static javax.swing.JTextField jugadornombre;
     private javax.swing.JButton letracorrecta;
     private javax.swing.JTextField letraintento;
