@@ -36,6 +36,7 @@ public class Letras2 extends javax.swing.JFrame{
 
         
     }
+
       public static boolean esVocal(char c) {
         c = Character.toLowerCase(c);
         return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
@@ -75,6 +76,8 @@ public class Letras2 extends javax.swing.JFrame{
         siguiente = new javax.swing.JButton();
         boxuno = new javax.swing.JComboBox<>();
         panelmuestra = new javax.swing.JPanel();
+        vocalaqui = new javax.swing.JTextField();
+        letracorrecta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 153));
@@ -210,15 +213,40 @@ public class Letras2 extends javax.swing.JFrame{
             }
         });
 
+        vocalaqui.setFont(new java.awt.Font("Chiller", 0, 36)); // NOI18N
+        vocalaqui.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vocalaquiActionPerformed(evt);
+            }
+        });
+
+        letracorrecta.setFont(new java.awt.Font("Wide Latin", 0, 10)); // NOI18N
+        letracorrecta.setText("Comprobar      vocal");
+        letracorrecta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                letracorrectaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelmuestraLayout = new javax.swing.GroupLayout(panelmuestra);
         panelmuestra.setLayout(panelmuestraLayout);
         panelmuestraLayout.setHorizontalGroup(
             panelmuestraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 175, Short.MAX_VALUE)
+            .addGroup(panelmuestraLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(vocalaqui, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                .addComponent(letracorrecta, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         panelmuestraLayout.setVerticalGroup(
             panelmuestraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelmuestraLayout.createSequentialGroup()
+                .addContainerGap(41, Short.MAX_VALUE)
+                .addGroup(panelmuestraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(vocalaqui, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letracorrecta, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -263,7 +291,7 @@ public class Letras2 extends javax.swing.JFrame{
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(168, 168, 168)
                                 .addComponent(panelmuestra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(197, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(115, 115, 115)
                         .addComponent(jLabel2)
@@ -335,34 +363,34 @@ public class Letras2 extends javax.swing.JFrame{
     }//GEN-LAST:event_salirdeljuegoMouseClicked
 
     private void vocalAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vocalAActionPerformed
-        // TODO add your handling code here:
+                    
         String letra =vocalA.getText();
-        letraintento.setText(letraintento.getText()+letra);
-        
+        vocalaqui.setText(vocalaqui.getText()+letra);
+      
     }//GEN-LAST:event_vocalAActionPerformed
 
     private void vocalEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vocalEActionPerformed
         // TODO add your handling code here:
         String letra =vocalE.getText();
-        letraintento.setText(letraintento.getText()+letra);
+        vocalaqui.setText(vocalaqui.getText()+letra);
     }//GEN-LAST:event_vocalEActionPerformed
 
     private void vocalIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vocalIActionPerformed
         // TODO add your handling code here:
         String letra =vocalI.getText();
-        letraintento.setText(letraintento.getText()+letra);
+        vocalaqui.setText(vocalaqui.getText()+letra);
     }//GEN-LAST:event_vocalIActionPerformed
 
     private void vocalOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vocalOActionPerformed
         // TODO add your handling code here:
         String letra =vocalO.getText();
-        letraintento.setText(letraintento.getText()+letra);
+        vocalaqui.setText(vocalaqui.getText()+letra);
     }//GEN-LAST:event_vocalOActionPerformed
 
     private void vocalUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vocalUActionPerformed
         // TODO add your handling code here:
         String letra =vocalU.getText();
-        letraintento.setText(letraintento.getText()+letra);
+        vocalaqui.setText(vocalaqui.getText()+letra);
     }//GEN-LAST:event_vocalUActionPerformed
 
     private void letraintentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letraintentoActionPerformed
@@ -383,6 +411,10 @@ public class Letras2 extends javax.swing.JFrame{
         letraintento.setText(palabraMostrar);
         add(siguiente);
         
+         if  (vocalaqui.getText().length()!=0){
+        vocalaqui.setText(vocalaqui.getText().substring(0,vocalaqui.getText().length()-1));
+         }
+        
   
     }//GEN-LAST:event_siguienteActionPerformed
 
@@ -399,6 +431,27 @@ public class Letras2 extends javax.swing.JFrame{
         // TODO add your handling code here:
         
     }//GEN-LAST:event_panelmuestraComponentAdded
+
+    private void letracorrectaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letracorrectaActionPerformed
+    
+    
+    
+      if (letracorrecta(vocalaqui.getText().trim())){
+          JOptionPane.showMessageDialog(rootPane, "LA VOCAL ES CORRECTA");
+          
+          
+      }
+      else{
+           JOptionPane.showMessageDialog(rootPane, "ES INCORRETO");
+      }
+     
+    }//GEN-LAST:event_letracorrectaActionPerformed
+          public static boolean letracorrecta(String vocalaqui){
+             return vocalaqui.matches("[a-e-i-o-uA-E-I-O-U]");
+        }
+    private void vocalaquiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vocalaquiActionPerformed
+        
+    }//GEN-LAST:event_vocalaquiActionPerformed
  
     /**
      * @param args the command line arguments
@@ -447,6 +500,7 @@ public class Letras2 extends javax.swing.JFrame{
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     public static javax.swing.JTextField jugadornombre;
+    private javax.swing.JButton letracorrecta;
     private javax.swing.JTextField letraintento;
     private javax.swing.JPanel panelmuestra;
     private javax.swing.JButton salirdeljuego;
@@ -456,5 +510,6 @@ public class Letras2 extends javax.swing.JFrame{
     private javax.swing.JButton vocalI;
     private javax.swing.JButton vocalO;
     private javax.swing.JButton vocalU;
+    private javax.swing.JTextField vocalaqui;
     // End of variables declaration//GEN-END:variables
 }
