@@ -79,9 +79,8 @@ public class Juego extends javax.swing.JFrame {
 
     private void InstruccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InstruccionActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "El juego mostrara una imagen "
-                + "seguida de una palabra la cual habra que completar con una vocal,"
-                + " preciona (ACEPTAR) para regresar a la ventana prinicipal");
+        JOptionPane.showMessageDialog(null, "El juego mostrara una palabra la cual habra que completar con una de las vocales,despues de esto le das comprobar vocal y el juego te dira si escogiste la vocal correcta ."
+                + " Preciona (ACEPTAR) para regresar a la ventana prinicipal");
     }//GEN-LAST:event_InstruccionActionPerformed
     
     /**
