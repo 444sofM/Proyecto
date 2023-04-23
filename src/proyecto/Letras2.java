@@ -416,8 +416,9 @@ public class Letras2 extends javax.swing.JFrame{
     }//GEN-LAST:event_panelmuestraComponentAdded
 
     private void letracorrectaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letracorrectaActionPerformed
-    
-    
+     
+     
+           
     
       if (letracorrecta(vocalaqui.getText().trim())){
           JOptionPane.showMessageDialog(rootPane, "LA VOCAL ES CORRECTA");
